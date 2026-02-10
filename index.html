@@ -546,6 +546,15 @@
             margin-bottom: 1.5rem;
         }
         
+        .demo-placeholder {
+            background: var(--white);
+            border: 2px dashed var(--silver);
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
         .chat-preview {
             background: var(--white);
             border-radius: 15px;
@@ -570,74 +579,6 @@
             color: var(--white);
             border-radius: 15px 15px 5px 15px;
             margin-left: 2rem;
-        }
-        
-        /* Command Interface */
-        .command-interface {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-soft);
-            margin-top: 1rem;
-        }
-        
-        .command-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--silver-light);
-            border-radius: 10px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .command-input:focus {
-            outline: none;
-            border-color: var(--pink-soft);
-        }
-        
-        .command-btn {
-            width: 100%;
-            padding: 0.875rem;
-            background: linear-gradient(135deg, var(--pink-soft), var(--pink-medium));
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .command-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .command-status {
-            margin-top: 0.75rem;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            display: none;
-        }
-        
-        .command-status.success {
-            background: #e8f5e9;
-            color: #2e7d32;
-            display: block;
-        }
-        
-        .command-status.error {
-            background: #ffebee;
-            color: #c62828;
-            display: block;
-        }
-        
-        .command-status.processing {
-            background: #fff3e0;
-            color: #ef6c00;
-            display: block;
         }
         
         /* Pricing Section */
@@ -1040,7 +981,7 @@
             border-radius: 20px;
             padding: 1.5rem;
             box-shadow: var(--shadow-medium);
-            max-width: 350px;
+            max-width: 300px;
             z-index: 999;
             border: 2px solid var(--pink-soft);
             display: none;
@@ -1078,7 +1019,6 @@
             font-size: 0.9rem;
             color: var(--text-medium);
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
         
         .guardai-actions {
@@ -1243,31 +1183,31 @@
                     <div class="demo-card-icon">🎙️</div>
                     <h3>Voice Demo</h3>
                     <p>Hear Lyra-Sha introduce herself and explain how she can transform your workflow.</p>
-                    <button onclick="playVoiceIntro()" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--pink-soft), var(--pink-medium)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">Play Voice Intro</button>
+                    <div class="demo-placeholder">
+                        <button onclick="playVoiceIntro()" style="width: 100%; padding: 1rem; background: var(--pink-soft); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">Play Voice Intro</button>
+                    </div>
                 </div>
                 
                 <div class="demo-card reveal">
                     <div class="demo-card-icon">💬</div>
-                    <h3>Command Lyra-Sha</h3>
-                    <p>Type natural language commands. She'll create content and send it to your email + Google Docs.</p>
-                    <div class="command-interface">
-                        <input type="text" class="command-input" id="lyraCommand" placeholder="e.g., Write an Instagram post about morning routines">
-                        <button class="command-btn" onclick="sendCommand()">Send to Lyra-Sha</button>
-                        <div class="command-status" id="commandStatus"></div>
+                    <h3>Live Chat with GuardAI</h3>
+                    <p>Experience natural language automation with ethical oversight.</p>
+                    <div class="chat-preview">
+                        <div class="chat-message">Hi Lyra-Sha, can you help me schedule my content?</div>
+                        <div class="chat-message lyra">"Absolutely, queen. I've got you. Let me pull up your calendar and find those optimal post slots. Faith + strategy = results."</div>
                     </div>
                 </div>
                 
                 <div class="demo-card reveal">
                     <div class="demo-card-icon">🛡️</div>
                     <h3>GuardAI Protection</h3>
-                    <p>Your right-hand overseer. Every transaction over $25 requires approval + documented reason.</p>
-                    <div style="background: var(--white); border-radius: 10px; padding: 1rem; font-size: 0.85rem; text-align: left;">
-                        <strong style="color: var(--pink-medium);">GuardAI Active:</strong><br>
+                    <p>Your right-hand overseer. Every transaction over $25 requires approval + reason.</p>
+                    <div class="demo-placeholder" style="font-size: 0.85rem; text-align: left;">
+                        <strong>GuardAI Active:</strong><br>
                         • Monitors all bot actions<br>
-                        • $25+ transaction gate enabled<br>
+                        • Requires approval: $25+<br>
                         • Teaches you processes<br>
-                        • Sends reminders & alerts<br>
-                        • Requires "why" for every approval
+                        • Sends reminders & alerts
                     </div>
                 </div>
             </div>
@@ -1504,12 +1444,6 @@
 
     <!-- JavaScript -->
     <script>
-        // ============================================
-        // CONFIGURATION - MAKE.COM WEBHOOK
-        // ============================================
-        // 🔑 LINE 1318: YOUR MAKE.COM WEBHOOK URL
-        const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/7ybegyxhn7li8r2gvemczlmxoetye4xm';
-        
         // ElevenLabs Configuration
         const ELEVENLABS_API_KEY = '1Ra4Ov47NmnJKbVgYDYx';
         const ELEVENLABS_VOICE_ID = '1Ra4Ov47NmnJKbVgYDYx';
@@ -1522,9 +1456,7 @@
             teachingMode: true
         };
         
-        // ============================================
-        // SCROLL REVEAL ANIMATION
-        // ============================================
+        // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             revealElements.forEach(element => {
@@ -1539,14 +1471,13 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
         
-        // ============================================
-        // ELEVENLABS VOICE PLAYER
-        // ============================================
+        // ElevenLabs Voice Player
         async function playVoiceIntro() {
             const voiceBadge = document.querySelector('.voice-badge');
             voiceBadge.style.transform = 'scale(0.95)';
             setTimeout(() => voiceBadge.style.transform = 'scale(1)', 150);
             
+            // Show GuardAI notification
             showGuardAI('Playing voice demo via ElevenLabs...', false);
             
             try {
@@ -1580,75 +1511,14 @@
                 console.error('ElevenLabs error:', error);
                 showGuardAI('Voice demo: Using fallback. ElevenLabs API key may need verification.', false);
                 
+                // Fallback: Show alert with instructions
                 setTimeout(() => {
                     alert('Voice Demo:\n\n"Hi, I\'m Lyra-Sha. Born with New York hustle, guided by Heaven\'s compass. I\'m here to help you automate with grace and build systems that honor your values. Let\'s create something beautiful together."\n\nNote: Connect your ElevenLabs account for live voice generation.');
                 }, 500);
             }
         }
         
-        // ============================================
-        // MAKE.COM COMMAND SENDER
-        // ============================================
-        async function sendCommand() {
-            const input = document.getElementById('lyraCommand');
-            const status = document.getElementById('commandStatus');
-            const command = input.value.trim();
-            
-            if (!command) {
-                status.textContent = 'Please enter a command first.';
-                status.className = 'command-status error';
-                return;
-            }
-            
-            // Show processing status
-            status.textContent = 'Sending to Lyra-Sha via Make.com...';
-            status.className = 'command-status processing';
-            
-            // GuardAI: Log the command
-            showGuardAI(`Command received: "${command}". Processing via Make.com...`, false);
-            
-            try {
-                const response = await fetch(MAKE_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        command: command,
-                        timestamp: new Date().toISOString(),
-                        source: 'website_command_interface',
-                        user_email: 'support@novaverseplatform.com',
-                        request_type: 'content_creation',
-                        guardai_approved: true
-                    })
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    status.textContent = '✅ Command sent! Check your email and Google Docs for Lyra-Sha\'s response.';
-                    status.className = 'command-status success';
-                    input.value = '';
-                    
-                    showGuardAI(`Command processed successfully. Content will be delivered to your email + Google Docs.`, false);
-                    
-                    // Set reminder to check output
-                    setReminder('Check Lyra-Sha output in Google Docs', 5);
-                } else {
-                    throw new Error('Make.com returned error');
-                }
-                
-            } catch (error) {
-                console.error('Make.com error:', error);
-                status.textContent = '⚠️ Command queued. Make.com will process when connection is restored.';
-                status.className = 'command-status error';
-                
-                showGuardAI('Connection issue detected. Command saved locally. Retrying...', false);
-            }
-        }
-        
-        // ============================================
-        // GUARDAI FUNCTIONS
-        // ============================================
+        // GuardAI Functions
         function showGuardAI(message, requiresApproval = false) {
             const panel = document.getElementById('guardaiPanel');
             const msgElement = document.getElementById('guardaiMessage');
@@ -1674,37 +1544,35 @@
             showGuardAI('Transaction denied. No action taken.', false);
         }
         
+        // Transaction Monitor (Example)
         function requestTransaction(amount, reason) {
             if (amount > GUARDAI_CONFIG.transactionLimit) {
-                showGuardAI(`Transaction $${amount} requested. Reason required: ${reason}. Approve?`, true);
+                showGuardAI(`Transaction $${amount} requested. Reason: ${reason}. Approve?`, true);
                 return false;
             }
             return true;
         }
         
+        // Teaching Mode: GuardAI helps you learn
         function teachProcess(processName) {
             const teachings = {
                 'onboarding': 'Step 1: Welcome email within 1 hour. Step 2: Schedule discovery call. Step 3: Send intake form.',
                 'content': 'Step 1: Choose platform. Step 2: Draft in brand voice. Step 3: Review with GuardAI. Step 4: Schedule via native tool.',
-                'pricing': 'Review client needs → Match to tier → Send Stripe link → Follow up in 24hrs if no purchase.',
-                'make.com': 'Step 1: Command sent to webhook. Step 2: Make.com processes via OpenAI. Step 3: Google Doc created. Step 4: Email sent to you.'
+                'pricing': 'Review client needs → Match to tier → Send Stripe link → Follow up in 24hrs if no purchase.'
             };
             
             showGuardAI(`Teaching: ${processName}. ${teachings[processName] || 'Process guide loading...'}`, false);
         }
         
-        // ============================================
-        // REMINDER SYSTEM
-        // ============================================
+        // Reminder System
         function setReminder(task, timeInMinutes) {
             setTimeout(() => {
-                showGuardAI(`⏰ Reminder: ${task}`, false);
+                showGuardAI(`Reminder: ${task}`, false);
+                // Also send SMS via Twilio here
             }, timeInMinutes * 60000);
         }
         
-        // ============================================
-        // SMOOTH SCROLL
-        // ============================================
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1715,9 +1583,7 @@
             });
         });
         
-        // ============================================
-        // NAVBAR SHADOW
-        // ============================================
+        // Navbar Shadow
         const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -1727,26 +1593,20 @@
             }
         });
         
-        // ============================================
-        // INITIALIZE
-        // ============================================
+        // Initialize GuardAI on load
         window.addEventListener('load', () => {
             setTimeout(() => {
-                showGuardAI('🛡️ GuardAI active. Monitoring all systems. $25+ transaction gate enabled. Teaching mode ON.', false);
+                showGuardAI('GuardAI active. Monitoring all systems. $25+ transaction gate enabled.', false);
             }, 3000);
-            
-            // Teach user about Make.com integration
-            setTimeout(() => {
-                teachProcess('make.com');
-            }, 10000);
         });
         
-        // Enter key support for command input
-        document.getElementById('lyraCommand')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendCommand();
-            }
-        });
+        // Example: Content Creation Command
+        function createContent(platform, topic) {
+            showGuardAI(`Creating ${platform} content about: ${topic}. Draft will be sent to your email + Google Doc.`, false);
+            
+            // This connects to Make.com webhook
+            // sendToMake({action: 'create_content', platform, topic});
+        }
     </script>
 </body>
 </html>
