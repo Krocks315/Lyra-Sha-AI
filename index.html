@@ -679,21 +679,6 @@
             font-weight: bold;
         }
         
-<div class="pricing-card reveal" style="background: linear-gradient(135deg, var(--text-dark) 0%, #3a3a3a 100%); color: white; margin-top: 2rem; max-width: 350px; margin-left: auto; margin-right: auto;">
-    <div class="pricing-badge" style="background: linear-gradient(135deg, var(--champagne), var(--pink-soft));">Premium</div>
-    <h3 class="pricing-name" style="color: var(--champagne);">LSA Premium</h3>
-    <p class="pricing-desc" style="color: var(--silver);">Premium account management with ethical oversight.</p>
-    <div class="pricing-price" style="color: white;">$499<span style="color: var(--silver);">/month</span></div>
-    <ul class="pricing-features" style="color: white;">
-        <li>Everything in Full</li>
-        <li>GuardAI monitoring</li>
-        <li>Dedicated support</li>
-        <li>Account management</li>
-        <li>1TB Vault storage</li>
-    </ul>
-    <button onclick="createCheckout('premium')" class="btn-primary" style="width: 100%; text-align: center; display: block; background: var(--champagne); color: var(--text-dark);">Go Premium</button>
-</div>        .pricing-card.featured .pricing-features li::before { color: var(--champagne); }
-        
         /* Testimonials */
         .testimonials {
             padding: 6rem 5%;
@@ -1335,7 +1320,20 @@ async function createCheckout(tierCode) {
             <div class="testimonial-carousel">
                 <div class="testimonial-track">
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"Lyra took over my client emails and freed 4 hours of my day. I finally have time to focus on what I actually love doing."</p>
+                        <div class="pricing-card reveal" style="background: linear-gradient(135deg, var(--text-dark) 0%, #3a3a3a 100%); color: white; margin-top:...">
+  <div class="pricing-badge" style="background: var(--champagne); color: var(--pink-soft);">LSA Premium</div>
+  <h3 class="pricing-name" style="color: var(--champagne);">Premium</h3>
+  <p class="pricing-desc" style="color: var(--silver);">Premium account management with ethical oversight.</p>
+  <div class="pricing-price" style="color: var(--champagne);">$499<span style="color: var(--silver);">/month</span></div>
+  <ul class="pricing-features" style="color: white;">
+    <li>Everything in Full</li>
+    <li>GuardAI monitoring</li>
+    <li>Dedicated support</li>
+    <li>Account management</li>
+    <li>1TB Vault storage</li>
+  </ul>
+  <button onclick="createCheckout('premium')" class="btn-primary" style="width: 100%; text-align: center; display: block; background:...
+</div>                        <p class="testimonial-text">"Lyra took over my client emails and freed 4 hours of my day. I finally have time to focus on what I actually love doing."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">SM</div>
                             <div class="testimonial-info">
