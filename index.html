@@ -435,7 +435,7 @@
           stopBtn.style.display = 'flex';
         };
         
-        currentAudio.onended = function() {
+                currentAudio.onended = function() {
           playIcon.textContent = '▶';
           playText.textContent = 'Hear Lyra-Sha Speak';
           playBtn.style.display = 'flex';
@@ -463,6 +463,8 @@
       document.getElementById('playText').textContent = 'Hear Lyra-Sha Speak';
       document.getElementById('playBtn').style.display = 'flex';
       document.getElementById('stopBtn').style.display = 'none';
+    }
+  </script>      document.getElementById('stopBtn').style.display = 'none';
     }
   </script>    
     await currentAudio.play();
