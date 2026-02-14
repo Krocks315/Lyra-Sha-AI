@@ -695,11 +695,10 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            action: 'chat',
-            message: message,
-            user_id: 'e4437605-ead3-457d-8cd3-1484b67e2614'
-          })
-        });
+  action: 'chat',
+  payload: { message: message },
+  user_id: 'e4437605-ead3-457d-8cd3-1484b67e2614'
+})        
         
         const data = await response.json();
         
