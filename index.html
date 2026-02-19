@@ -150,7 +150,7 @@
       userEmail = email;
       userId = 'user_' + Date.now();
       
-      // Save email to Supabase (we'll add this later)
+      // Save email to Supabase
       saveEmailToDatabase(email, userId);
       
       // Hide modal, show chat
@@ -165,8 +165,8 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'apikey': 'YOUR_SUPABASE_ANON_KEY',
-            'Authorization': 'Bearer YOUR_SUPABASE_ANON_KEY'
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxcmNteXZkaGV6aGltZWhuc3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTAwNTIsImV4cCI6MjA4NjA2NjA1Mn0.UcUIWep_FAZh5a-3ZhrVYlNvWxHYcV8R0eSWloQpuKw',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxcmNteXZkaGV6aGltZWhuc3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTAwNTIsImV4cCI6MjA4NjA2NjA1Mn0.UcUIWep_FAZh5a-3ZhrVYlNvWxHYcV8R0eSWloQpuKw'
           },
           body: JSON.stringify({
             email: email,
