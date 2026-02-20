@@ -7,14 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --champagne: #E8B4B8;
-      --pink-soft: #D4A5A5;
-      --text-dark: #2D2D2D;
-      --silver: #888888;
-      --white: #FFFFFF;
-      --off-white: #FAFAFA;
-    }
+    :root { --champagne: #E8B4B8; --pink-soft: #D4A5A5; --text-dark: #2D2D2D; --silver: #888888; --white: #FFFFFF; --off-white: #FAFAFA; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; background: var(--white); }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
@@ -150,33 +143,9 @@
       userEmail = email;
       userId = 'user_' + Date.now();
       
-      // Save email to Supabase
-      saveEmailToDatabase(email, userId);
-      
-      // Hide modal, show chat
       document.getElementById('email-modal').style.display = 'none';
       document.getElementById('chat-window').style.display = 'block';
       document.getElementById('chat-toggle').style.display = 'none';
-    }
-
-    async function saveEmailToDatabase(email, id) {
-      try {
-        await fetch('https://gqrcmyvdhezhimehnszj.supabase.co/rest/v1/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxcmNteXZkaGV6aGltZWhuc3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTAwNTIsImV4cCI6MjA4NjA2NjA1Mn0.UcUIWep_FAZh5a-3ZhrVYlNvWxHYcV8R0eSWloQpuKw',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxcmNteXZkaGV6aGltZWhuc3pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTAwNTIsImV4cCI6MjA4NjA2NjA1Mn0.UcUIWep_FAZh5a-3ZhrVYlNvWxHYcV8R0eSWloQpuKw'
-          },
-          body: JSON.stringify({
-            email: email,
-            id: id,
-            created_at: new Date().toISOString()
-          })
-        });
-      } catch (e) {
-        console.log('Email save failed:', e);
-      }
     }
 
     function toggleChat() {
